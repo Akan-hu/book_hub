@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutFragment"
+    android:background="@drawable/my_background">
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Write whatever in your minds"
+      android:textColor="@color/black"
+      android:layout_centerHorizontal="true"
+      android:textStyle="normal"
+      android:textSize="20sp"
+      android:layout_marginTop="30dp"
+      android:id="@+id/write"/>
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_below="@id/write"
+       android:layout_marginTop="10dp">
+
+      <EditText
+          android:id="@+id/story_edit"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_gravity="top|left"
+          android:hint="Write Here"
+          android:inputType="textMultiLine" />
+   </ScrollView>
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/saveBtn"
+    android:text="save"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:layout_margin="10dp"/>
+
+</RelativeLayout>

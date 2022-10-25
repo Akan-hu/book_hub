@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".DescriptionActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:minHeight="?attr/actionBarSize"
+        android:background="#cc0000"
+        android:id="@+id/tool_bar" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scroll_view"
+        android:layout_below="@id/tool_bar"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/layout"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:id="@+id/near"
+            android:weightSum="6">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="120dp"
+                android:id="@+id/image"
+                android:src="@mipmap/ic_launcher_round"
+                android:scaleType="centerCrop"/>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3.3">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/anna"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:text="Anna Karenina"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Leo Tolstoy"
+                android:id="@+id/writer"
+                android:layout_below="@id/anna"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs. 199"
+                android:id="@+id/rupees"
+                android:textColor="#32CD32"
+                android:layout_below="@id/writer"
+                android:layout_marginTop="15dp"/>
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/my_rating"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/star_rating"/>
+
+            <TextView
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="20dp"
+             android:layout_marginLeft="7dp"
+             android:layout_weight="1.2"
+             android:text="4.2"
+             android:id="@+id/rat"
+             android:textColor="#FF8C00"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/near">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About the Book"
+                android:id="@+id/book"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/book"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="18sp"
+                android:id="@+id/descript"
+                android:textColor="@color/black"
+                android:text="Dharm aur satya se bada kuch nahi"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add to Favourites"
+                android:layout_below="@id/descript"
+                android:id="@+id/add"
+                android:layout_margin="7dp"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+      </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/favour_layout"
+        android:background="@color/white">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bar"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+</RelativeLayout>
