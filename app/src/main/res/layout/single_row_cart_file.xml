@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:id="@+id/cart_relative"
+    android:layout_marginBottom="10dp"
+    android:padding="5dp">
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/cart_BookImage"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="book name"
+        android:id="@+id/cart_BookName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="9dp"
+        android:layout_toRightOf="@id/cart_BookImage"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cart_Book_author"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/cart_BookImage"
+        android:layout_below="@id/cart_BookName"
+        android:text="Name of the Author"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cart_Book_rating"
+        android:text="4.5"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/cart_BookImage"
+        android:textColor="#FF8C00"
+        android:layout_below="@id/cart_Book_author"
+        android:layout_marginTop="13dp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_my_delete"
+        android:id="@+id/delete_book"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="5dp" />
+
+</RelativeLayout>

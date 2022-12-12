@@ -1,6 +1,5 @@
 package android.example.kotlinproject.database
 
-import android.example.kotlinproject.model.Book
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -21,5 +20,6 @@ interface BookDao {
     //function to check that a particular book is added in favourites or not
     @Query("SELECT*FROM Books where book_id = :bookId")
     fun getBookById(bookId : String) : BookEntities
+
 
 }

@@ -14,6 +14,7 @@ import androidx.room.PrimaryKey
 data class BookEntities(
 
     @PrimaryKey val book_id : Int,
+
     @ColumnInfo(name = "book_name") val bookName : String,
     @ColumnInfo(name = "book_author") val bookAuthor : String,
     @ColumnInfo(name = "book_price") val bookPrice : String,

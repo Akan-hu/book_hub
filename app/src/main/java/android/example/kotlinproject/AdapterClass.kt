@@ -32,7 +32,7 @@ class AdapterClass(val context:Context, private val bookInfoList:ArrayList<Book>
         holder.textBookRating.text = book.bookRating
 
         /*loading image in the form of string using picasso library
-        here in below line error is used to handle errors occures by picasso
+        here in below line error is used to handle errors occurs by picasso
         error like if all images are not loaded correctly we can show default images*/
 
         Picasso.get().load(book.bookImage).error(R.drawable.default_book_cover).into(holder.imgBookImage)

@@ -12,15 +12,23 @@
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/drawable-anydpi/ic_phone.xml" value="0.2703125" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/drawable-anydpi/ic_profile_name.xml" value="0.23703703703703705" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/drawable/background.xml" value="0.2703125" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/drawable/mybutton.xml" value="0.2703125" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/activity_description.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/activity_main.xml" value="0.19444444444444445" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/activity_order_confirm.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/activity_splash_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/drawer_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/fragment_about.xml" value="0.264" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/fragment_dashboard.xml" value="0.25025641025641027" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/fragment_favoutite.xml" value="0.25025641025641027" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/fragment_my_cart.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/fragment_profile.xml" value="0.25025641025641027" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/recycler_favourite_single_row.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/single_row_cart_file.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/layout/single_row_file.xml" value="0.264" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/menu/menu_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KotlinProject/app/src/main/res/menu/sorting_menu.xml" value="0.25416666666666665" />

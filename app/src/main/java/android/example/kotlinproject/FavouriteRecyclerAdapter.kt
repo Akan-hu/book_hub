@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
@@ -39,11 +40,10 @@ class FavouriteRecyclerAdapter(val context:Context, val bookList:List<BookEntiti
             Picasso.get().load(book.bookImage).error(R.drawable.default_book_cover).into(holder.favBookImage)
         holder.favLinearLayout.setOnClickListener {
             val intent = Intent(context, DescriptionActivity::class.java)
-            intent.putExtra("book_id", book.book_id.toString()) // toString is added
+            intent.putExtra("book_id", book.book_id.toString())
             context.startActivity(intent)
+
         }
-
-
 
     }
 

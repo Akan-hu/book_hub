@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/purple_500"
         android:textSize="18sp"
+        android:text="book name"
         android:id="@+id/txtBookName"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
@@ -31,12 +32,13 @@
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/imgBookImage"
         android:layout_below="@id/txtBookName"
+        android:textColor="@color/black"
         android:text="Name of the Author"
-        android:textSize="10sp"/>
+        android:textSize="12sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rs. 299"
+        android:text=" 299"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="30dp"
         android:layout_marginTop="15dp"

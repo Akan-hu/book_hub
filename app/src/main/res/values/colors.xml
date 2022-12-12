@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colourFavourites">#FFBB86FC</color>
     <color name="notFavouriteColour">#cc0000</color>
+    <color name="cartColour">#0F9F9D9D</color>
+    <color name="textColor">#000000</color>
 </resources>

@@ -11,7 +11,7 @@
         android:layout_height="140dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:src="@drawable/default_image"/>
+        android:src="@drawable/default_book_cover"/>
 
     <TextView
         android:id="@+id/akanksha"
@@ -42,26 +42,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/android"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:text="   Bio"
-            android:drawableLeft="@drawable/ic_about_name"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:text="Your mind to be stronger than your feelings"
-            android:textSize="12sp" />
 
         <TextView
             android:layout_width="wrap_content"

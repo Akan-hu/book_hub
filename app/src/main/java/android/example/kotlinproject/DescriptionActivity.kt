@@ -2,7 +2,6 @@ package android.example.kotlinproject
 
 import android.content.Context
 import android.content.Intent
-import android.example.kotlinproject.database.BookDao
 import android.example.kotlinproject.database.BookDatabase
 import android.example.kotlinproject.database.BookEntities
 import android.example.kotlinproject.util.ConnectionManager
@@ -10,7 +9,6 @@ import android.graphics.Color
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Display
 import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
@@ -32,6 +30,8 @@ class DescriptionActivity : AppCompatActivity() {
     lateinit var bookRating : TextView
     lateinit var bookDescr: TextView
     lateinit var favourButton : Button
+    lateinit var cartButton : Button
+
     lateinit var progressBar: ProgressBar
     lateinit var progressLayout : RelativeLayout
     lateinit var toolbar : Toolbar
@@ -50,6 +50,8 @@ class DescriptionActivity : AppCompatActivity() {
         bookRating = findViewById(R.id.rat)
         bookDescr = findViewById(R.id.descript)
         favourButton = findViewById(R.id.add)
+        cartButton = findViewById(R.id.add_to_cart)
+
         progressBar = findViewById(R.id.bar)
         progressBar.visibility = View.VISIBLE
         progressLayout = findViewById(R.id.favour_layout)
@@ -58,7 +60,6 @@ class DescriptionActivity : AppCompatActivity() {
         toolbar.setTitleTextColor(Color.WHITE)
         setSupportActionBar(toolbar)
         supportActionBar?.title = "Book Details"
-
 
         if (intent != null) {
             bookId = intent.getStringExtra("book_id")
@@ -96,7 +97,7 @@ class DescriptionActivity : AppCompatActivity() {
                             bookPrice.text = bookJsonObject.getString("price")
                             bookDescr.text = bookJsonObject.getString("description")
 
-                            val bookEntities = BookEntities(
+                            var bookEntities = BookEntities(
                                 bookId?.toInt() as Int,
                                 bookName.text.toString(),
                                 authorName.text.toString(),
@@ -122,6 +123,7 @@ class DescriptionActivity : AppCompatActivity() {
                                     applicationContext,
                                     R.color.colourFavourites
                                 )
+
                                 favourButton.setBackgroundColor(favrouriteColour)
                             } else {
                                 favourButton.text = "Add to Favourites"
@@ -131,7 +133,6 @@ class DescriptionActivity : AppCompatActivity() {
                                 )
                                 favourButton.setBackgroundColor(noFavCol)
                             }
-
                             //adding click listener on button
 
                             //this code for when book is not added in favourites so to add book in favourite we use this code
@@ -204,6 +205,60 @@ class DescriptionActivity : AppCompatActivity() {
                                     }
                                 }
                             }
+                            val checkCart =
+                                    DBAsyncTask(applicationContext, bookEntities, 1).execute()
+                            val isInCart = checkCart.get()
+                            if (isInCart) {
+                                cartButton.text = "Added in Cart"
+                                val textCol = ContextCompat.getColor(applicationContext,R.color.textColor)
+                                val backCol = ContextCompat.getColor(applicationContext,R.color.cartColour)
+                                cartButton.setTextColor(textCol)
+                                cartButton.setBackgroundColor(backCol)
+                            } else {
+                                cartButton.text = "Add to Cart"
+                            }
+
+                            //adding clickListener to cart button
+
+                            cartButton.setOnClickListener {
+                                if(!DBAsyncTask(applicationContext,bookEntities,1).execute().get()) {
+                                    val cartModeTwo = DBAsyncTask(
+                                        applicationContext,
+                                        bookEntities,
+                                        2
+                                    ).execute()
+
+                                    val modeTwoResult = cartModeTwo.get()
+                                    if(modeTwoResult){
+                                        Toast.makeText(this@DescriptionActivity,"Book added in Cart",Toast.LENGTH_SHORT).show()
+                                        cartButton.text = "Added in Cart"
+                                        val txtcol = ContextCompat.getColor(applicationContext,R.color.textColor)
+                                        val col = ContextCompat.getColor(applicationContext,R.color.cartColour)
+                                        cartButton.setBackgroundColor(col)
+                                        cartButton.setTextColor(txtcol)
+                                    }
+                                    else{
+                                        Toast.makeText(this@DescriptionActivity,"Some Error occured",Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                               /* else{
+                                   val cartModeThree = DBAsyncTask(applicationContext,bookEntities,3).execute()
+                                    val modeThreeResult = cartModeThree.get()
+                                    if(modeThreeResult) {
+                                        Toast.makeText(
+                                            this@DescriptionActivity,
+                                            "Book remove from cart",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        cartButton.text = "Add to cart"
+                                    }
+                                    else{
+                                            Toast.makeText(this@DescriptionActivity,"Some error ocurred",Toast.LENGTH_SHORT).show()
+
+                                        }
+                                }*/
+
+                            }
                         } else {
                             Toast.makeText(
                                 this@DescriptionActivity,
@@ -227,7 +282,8 @@ class DescriptionActivity : AppCompatActivity() {
                         .show()
 
 
-                }) {
+                })
+            {
                 override fun getHeaders(): MutableMap<String, String> {
                     val headers = HashMap<String, String>()
                     headers["Content-type"] = "application/json"
@@ -255,17 +311,18 @@ class DescriptionActivity : AppCompatActivity() {
 
         // initialization of BookDatabase class
 
-        val db = Room.databaseBuilder(context,BookDatabase :: class.java,"books_db").build()
+        val db = Room.databaseBuilder(context, BookDatabase::class.java, "books_db").build()
         override fun doInBackground(vararg params: Void?): Boolean {
 
-            when(mode){
+            when (mode) {
 
                 1 -> {
 
-                   // check the DB if book in favourite or not
+                    // check the DB if book in favourite or not
 
-                    val book : BookEntities? = db.bookDao().getBookById(bookEntities.book_id.toString())
-                     db.close()
+                    val book: BookEntities? =
+                            db.bookDao().getBookById(bookEntities.book_id.toString())
+                    db.close()
 
                     //if book in the favourites it return true else false
                     return book != null
@@ -274,7 +331,7 @@ class DescriptionActivity : AppCompatActivity() {
 
                 2 -> {
 
-                   // save the book in DB as favourites
+                    // save the book in DB as favourites
                     db.bookDao().insertBook(bookEntities)
                     db.close()
                     return true
@@ -282,18 +339,16 @@ class DescriptionActivity : AppCompatActivity() {
                 }
 
                 3 -> {
-                   // remove the favourite book from DB
+                    // remove the favourite book from DB
                     db.bookDao().deleteBook(bookEntities)
                     db.close()
                     return true
                 }
+
             }
             return false
         }
-
-
     }
-
  }
 
 

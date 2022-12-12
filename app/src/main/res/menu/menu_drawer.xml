@@ -9,6 +9,7 @@
                 android:title="  Favourite"
                 android:id="@+id/my_favourites"
                 android:icon="@drawable/ic_favourite_name"/>
+
             <item
                 android:title="  Profile"
                 android:id="@+id/profile"
@@ -17,5 +18,9 @@
                 android:title="  Your Story"
                 android:id="@+id/about"
                 android:icon="@drawable/ic_notes"/>
+            <item
+                android:title=" My Cart"
+                android:icon="@drawable/ic_my_cart"
+                android:id="@+id/cart_fragment"/>
         </group>
 </menu>

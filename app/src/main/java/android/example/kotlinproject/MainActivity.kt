@@ -7,10 +7,8 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.view.GravityCompat
 import androidx.core.view.GravityCompat.START
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 
  class MainActivity : AppCompatActivity() {
@@ -43,15 +41,6 @@ import com.google.android.material.navigation.NavigationView
          actionBarDrawerToggle.syncState()
          navigationView.setNavigationItemSelectedListener {
 
-             /*if(previousMenuItem != null){
-                 //if already any item is selected make it as unselected
-                 previousMenuItem?.isChecked = false
-             }
-             //make currently item as selected
-             it.isChecked = true
-             it.isCheckable = true
-             previousMenuItem = it*/
-
              when (it.itemId) {
                  R.id.dash_board -> {
                      replaceFragment()
@@ -64,9 +53,8 @@ import com.google.android.material.navigation.NavigationView
 
                  }
                  R.id.profile -> {
-                     supportFragmentManager.beginTransaction().replace(R.id.frame,ProfileFragment())
-                         .commit()
-                     supportActionBar?.title = "My Proile"
+                     supportFragmentManager.beginTransaction().replace(R.id.frame,ProfileFragment()).commit()
+                     supportActionBar?.title = "My Profile"
                      drawerLayout.close()
                  }
                  R.id.about -> {
@@ -76,12 +64,18 @@ import com.google.android.material.navigation.NavigationView
                      supportActionBar?.title = "My Notes"
                      drawerLayout.close()
                  }
+                 R.id.cart_fragment ->{
+                     supportFragmentManager.beginTransaction().replace(R.id.frame,MyCartFragment()).commit()
+                     supportActionBar?.title = "My Cart"
+                     drawerLayout.close()
+                 }
              }
+
              return@setNavigationItemSelectedListener true
          }
      }
 
-     fun replaceFragment() {
+     private fun replaceFragment() {
          val fragment = DashboardFragment()
          val transaction = supportFragmentManager.beginTransaction()
          transaction.replace(R.id.frame,fragment)
@@ -89,7 +83,7 @@ import com.google.android.material.navigation.NavigationView
          supportActionBar?.title = "Dashboard"
          drawerLayout.close()
      }
-     fun setToolBar() {
+     private fun setToolBar() {
          setSupportActionBar(toolbar)
          supportActionBar?.title = "Book Store"
          supportActionBar?.setHomeButtonEnabled(true)
@@ -117,6 +111,7 @@ import com.google.android.material.navigation.NavigationView
          }
 
      }
+
  }
 
 

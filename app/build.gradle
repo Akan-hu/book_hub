@@ -1,12 +1,14 @@
 plugins {
+
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 
 }
 
 android {
-    compileSdk 32
+    compileSdk 31
 
     defaultConfig {
         configurations.all {
@@ -14,7 +16,7 @@ android {
         }
         applicationId "android.example.kotlinproject"
         minSdk 21
-        targetSdk 32
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -31,6 +33,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    compileSdkVersion 31
+    buildToolsVersion '30.0.2'
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -38,31 +42,42 @@ android {
 
 dependencies {
 
-   /* implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
-    // To use Kotlin annotation processing tool (kapt)
-    kapt "androidx.room:room-compiler:$room_version"
-    // To use Kotlin Symbol Processing (KSP)
-    ksp "androidx.room:room-compiler:$room_version"*/
+
     implementation "androidx.room:room-runtime:2.2.4"
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
     kapt "androidx.room:room-compiler:2.2.4"
 
-  //  implementation 'androidx.room:room-runtime:2.2.5'
-  //  kapt 'androidx.room:room-compiler:2.2.5'
-    //implementation "androidx.room:room-runtime:2.2.4"
-  //  kapt "androidx.room:room-compiler:2.2.5"
-    //implementation "androidx.room:room-ktx:2.2.5"
+    //animation screen dependency
+    implementation "com.airbnb.android:lottie:5.2.0"
+
 
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    //firebase dependency
+    implementation 'com.google.firebase:firebase-database:20.1.0'
+
+    //loading url of image from api dependency
     implementation 'com.squareup.picasso:picasso:2.8'
+
+    //circle image dependency
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //volley request dependency
     implementation 'com.android.volley:volley:1.1.1'
+
     implementation 'com.android.support:design:28.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.+'
+   // testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation 'androidx.annotation:annotation:1.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+
+    //google signing dependency
+    implementation 'com.google.android.gms:play-services-auth:20.4.0'
+
 }
